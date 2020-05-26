@@ -1,28 +1,26 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app" class="antialiased text-gray-700 leading-normal bg-gray-100 h-screen overflow-x-hidden">
+        <div class="container mx-auto px-6">
+            <header class="mt-10 mb-6">
+                <h1 class="text-2xl text-gray-800">Vire Walkie Talkie</h1>
+
+                <p>
+                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-medium text-xs">Realtime voice chat</span>
+                </p>
+            </header>
+
+            <router-view></router-view>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+
+    components: {
+        //
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
