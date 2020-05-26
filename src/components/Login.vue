@@ -35,7 +35,7 @@
 
                 <span class="ml-3 text-sm text-gray-600">or</span>
 
-                <button class="ml-3 rounded-lg px-4 py-2 bg-white hover:bg-gray-200 text-sm font-medium text-gray-800 leading-relaxed shadow-md" @click="auth.signInAnonymously()">
+                <button class="ml-3 rounded-lg px-4 py-2 bg-white hover:bg-gray-200 text-sm font-medium text-gray-800 leading-relaxed shadow-md" @click="auth.signInOrCreateUser()">
                     Sign in anonymously
                 </button>
             </div>
@@ -69,6 +69,25 @@ export default {
             password: null,
             errorMessage: null,
             loading: false
+        }
+    },
+
+    methods: {
+        async signInOrCreateUser() {
+            this.loading = true;
+            this.errorMessage = null;
+
+            try {
+                if (this.newUser) {
+                    await auth.createUserWithEmailAndPassword(this.email, this.password);
+                } else {
+                    await auth.signInWithEmailAndPassword(this.email, this.password);
+                }
+            } catch (error) {
+                this.errorMessage = error.message;
+            }
+
+            this.loading = false;
         }
     }
 }
