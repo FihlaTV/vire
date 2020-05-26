@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p class="text-gray-600">Sign in to your account to get started.</p>
+        <p class="text-gray-600">{{ newUser ? 'Create an' : 'Sign in to your' }} account to get started.</p>
 
         <hr class="mt-4">
 
@@ -28,7 +28,7 @@
                     </span>
 
                     <span v-else>
-                        <span>Sign in</span>
+                        <span>{{ newUser ? 'Sign up' : 'Sign in' }}</span>
                         <span class="ml-1">&rarr;</span>
                     </span>
                 </button>
@@ -47,8 +47,12 @@
             </div>
         </div>
 
-        <div class="mt-10">
-            <p class="text-sm text-gray-600">Don't have an account yet? <a href="#" class="text-blue-500 hover:text-blue-600">Sign up</a></p>
+        <div class="mt-10" v-if="newUser">
+            <p class="text-sm text-gray-600">Already have an acocunt? <a href="#" @click.prevent="newUser = false" class="text-blue-500 hover:text-blue-600">Sign in</a></p>
+        </div>
+
+        <div class="mt-10" v-else>
+            <p class="text-sm text-gray-600">Don't have an account yet? <a href="#" @click.prevent="newUser = true" class="text-blue-500 hover:text-blue-600">Sign up</a></p>
         </div>
     </div>
 </template>
