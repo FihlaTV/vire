@@ -1,29 +1,33 @@
 <template>
-    <div class="xl:w-1/3 lg:w-1/2 md:w-2/3 w-full">
-        <header>
-            <h1 class="text-xl text-gray-800">Welcome</h1>
-        </header>
+    <div class="flex items-start flex-col lg:flex-row">
+        <div class="xl:w-1/3 lg:w-1/2 md:w-2/3 w-full">
+            <User v-slot:user="{ user }">
+                <div v-if="user">
+                    <UserProfile :user="user" />
 
-        <User v-slot:user="{ user }">
-            <div v-if="user">
-                <UserProfile :user="user" />
-            </div>
+                    <hr class="my-6">
 
-            <Login v-else />
-        </User>
+                    <ChatList />
+                </div>
+
+                <Auth v-else />
+            </User>
+        </div>
     </div>
 </template>
 
 <script>
-import Login from './Login';
+import Auth from './Auth';
 import User from './User';
 import UserProfile from './UserProfile';
+import ChatList from './ChatList';
 
 export default {
     components: {
-        Login,
+        Auth,
         User,
-        UserProfile
+        UserProfile,
+        ChatList,
     }
 }
 </script>
