@@ -4,9 +4,7 @@
             <div v-if="user" class="relative rounded-lg overflow-hidden bg-white" style="min-height: 600px;">
                 <div class="overflow-y-auto px-6 py-2 mb-40" style="height: 500px;">
                     <div class="my-4 flex" :class="user.uid === message.sender ? 'justify-end' : 'justify-start'" v-for="message in messages" :key="message.id">
-                        <div class="p-4 rounded-lg max-w-lg" :class="user.uid === message.sender ? 'bg-gray-200 text-gray-800' : 'bg-blue-500 text-white'">
-                            {{ message.text }}
-                        </div>
+                        <ChatMessage :message="message" :owner="user.id === message.sender" />
                     </div>
 
                     <!-- <div class="my-4 flex justify-end">
@@ -39,12 +37,14 @@
 </template>
 
 <script>
+    import ChatMessage from './ChatMessage';
     import User from './User';
     import Auth from './Auth';
     import { db } from '../firebase';
 
     export default {
         components: {
+            ChatMessage,
             User,
             Auth
         },

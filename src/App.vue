@@ -2,7 +2,7 @@
     <div id="app" class="antialiased text-gray-700 leading-normal bg-gray-100 min-h-screen overflow-x-hidden pb-24">
         <div class="container mx-auto px-6">
             <header class="mt-10 mb-6">
-                <div>
+                <div class="flex">
                     <a href="#" class="block h-10">
                         <img src="./assets/img/logo.png" class="h-10" alt="Vire">
                     </a>
