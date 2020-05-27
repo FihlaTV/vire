@@ -19,15 +19,15 @@
 </template>
 
 <script>
-import { auth } from '../firebase';
+    import { auth } from '../firebase';
 
-export default {
-    props: ['user'],
+    export default {
+        props: ['user'],
 
-    data() {
-        return {
-            auth,
+        data() {
+            return {
+                auth,
+            }
         }
     }
-}
 </script>

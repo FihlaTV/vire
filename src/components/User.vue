@@ -5,25 +5,25 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api';
-import { auth } from '../firebase';
+    import { ref } from '@vue/composition-api';
+    import { auth } from '../firebase';
 
-export default {
-    setup() {
-        const user = ref(null);
+    export default {
+        setup() {
+            const user = ref(null);
 
-        const unsubscribe = auth.onAuthStateChanged(firebaseUser => {
-            user.value = firebaseUser;
-        });
+            const unsubscribe = auth.onAuthStateChanged(firebaseUser => {
+                user.value = firebaseUser;
+            });
 
-        return {
-            user,
-            unsubscribe
+            return {
+                user,
+                unsubscribe
+            }
+        },
+
+        destroy() {
+            this.unsubscribe();
         }
-    },
-
-    destroy() {
-        this.unsubscribe();
     }
-}
 </script>

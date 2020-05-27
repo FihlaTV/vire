@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="antialiased text-gray-700 leading-normal bg-gray-100 h-screen overflow-x-hidden pb-24">
+    <div id="app" class="antialiased text-gray-700 leading-normal bg-gray-100 min-h-screen overflow-x-hidden pb-24">
         <div class="container mx-auto px-6">
             <header class="mt-10 mb-6">
                 <div>
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-export default {
-    name: 'App',
+    export default {
+        name: 'App',
 
-    components: {
-        //
+        components: {
+            //
+        }
     }
-}
 </script>
 

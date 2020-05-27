@@ -12,13 +12,20 @@ Vue.use(VueRouter);
 Vue.use(VueCompositionApi);
 
 import Home from './components/Home';
+import ChatRoom from './components/ChatRoom';
 
 const router = new VueRouter({
     routes: [
         {
+            name: 'home',
             path: '/',
             component: Home
         },
+        {
+            name: 'chat',
+            path: '/chats/:id',
+            component: ChatRoom
+        }
     ]
 })
 

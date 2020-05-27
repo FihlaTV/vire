@@ -7,7 +7,7 @@
 
                     <hr class="my-6">
 
-                    <ChatList />
+                    <ChatList :uid="user.uid" />
                 </div>
 
                 <Auth v-else />
@@ -17,17 +17,17 @@
 </template>
 
 <script>
-import Auth from './Auth';
-import User from './User';
-import UserProfile from './UserProfile';
-import ChatList from './ChatList';
+    import Auth from './Auth';
+    import User from './User';
+    import UserProfile from './UserProfile';
+    import ChatList from './ChatList';
 
-export default {
-    components: {
-        Auth,
-        User,
-        UserProfile,
-        ChatList,
+    export default {
+        components: {
+            Auth,
+            User,
+            UserProfile,
+            ChatList,
+        }
     }
-}
 </script>

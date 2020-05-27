@@ -62,37 +62,37 @@
 </template>
 
 <script>
-import { auth } from '../firebase';
+    import { auth } from '../firebase';
 
-export default {
-    data() {
-        return {
-            auth,
-            newUser: false,
-            email: null,
-            password: null,
-            errorMessage: null,
-            loading: false
-        }
-    },
-
-    methods: {
-        async signInOrCreateUser() {
-            this.loading = true;
-            this.errorMessage = null;
-
-            try {
-                if (this.newUser) {
-                    await auth.createUserWithEmailAndPassword(this.email, this.password);
-                } else {
-                    await auth.signInWithEmailAndPassword(this.email, this.password);
-                }
-            } catch (error) {
-                this.errorMessage = error.message;
+    export default {
+        data() {
+            return {
+                auth,
+                newUser: false,
+                email: null,
+                password: null,
+                errorMessage: null,
+                loading: false
             }
+        },
 
-            this.loading = false;
+        methods: {
+            async signInOrCreateUser() {
+                this.loading = true;
+                this.errorMessage = null;
+
+                try {
+                    if (this.newUser) {
+                        await auth.createUserWithEmailAndPassword(this.email, this.password);
+                    } else {
+                        await auth.signInWithEmailAndPassword(this.email, this.password);
+                    }
+                } catch (error) {
+                    this.errorMessage = error.message;
+                }
+
+                this.loading = false;
+            }
         }
     }
-}
 </script>
